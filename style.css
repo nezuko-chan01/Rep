@@ -1,0 +1,157 @@
+body{
+
+  margin:0;
+
+  text-align:center;
+
+  font-family:'Comic Sans MS', cursive;
+
+  background:#ffeef5;
+
+  overflow-x:hidden;
+
+}
+
+/* Typing */
+
+.typing{
+
+  font-size:28px;
+
+  color:#ff4d88;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  border-right:3px solid pink;
+
+  width:0;
+
+  animation:typing 4s steps(30,end) forwards;
+
+  margin:60px auto;
+
+}
+
+.name{
+
+  color:#ff1493;
+
+  animation:heartbeat 1.2s infinite;
+
+}
+
+/* Buttons */
+
+button{
+
+  padding:12px 20px;
+
+  border:none;
+
+  border-radius:20px;
+
+  background:#ff80ab;
+
+  color:white;
+
+  font-size:16px;
+
+  margin:10px;
+
+}
+
+/* Popups */
+
+.popup{
+
+  display:none;
+
+  position:fixed;
+
+  top:8%;
+
+  left:5%;
+
+  width:90%;
+
+  background:white;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  z-index:10;
+
+}
+
+.popup img{
+
+  width:140px;
+
+}
+
+/* Emotional Note */
+
+.note-text{
+
+  font-size:16px;
+
+  line-height:1.6;
+
+  color:#ff4d88;
+
+}
+
+/* Tap section */
+
+.tap{
+
+  margin-top:80px;
+
+}
+
+/* Heart Rain */
+
+.heart{
+
+  position:fixed;
+
+  top:-20px;
+
+  font-size:20px;
+
+  animation:fall linear forwards;
+
+}
+
+/* Animations */
+
+@keyframes typing{
+
+  from{width:0}
+
+  to{width:100%}
+
+}
+
+@keyframes heartbeat{
+
+  0%,100%{transform:scale(1)}
+
+  50%{transform:scale(1.1)}
+
+}
+
+@keyframes fall{
+
+  to{
+
+    transform:translateY(100vh);
+
+    opacity:0;
+
+  }
+
+}
