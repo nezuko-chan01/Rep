@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Didu 💗</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#ffe6f0,#fff0f5);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #ff4d88;
+  margin-top: 40px;
+  animation: pop 1s infinite alternate;
+}
+
+@keyframes pop {
+  from {transform: scale(1);}
+  to {transform: scale(1.05);}
+}
+
+button {
+  background: #ff80bf;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.4);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  width:90%;
+  max-width:300px;
+}
+
+.cat {
+  font-size:80px;
+}
+
+.tap-box {
+  margin:40px auto;
+  background:#ffd6e8;
+  padding:20px;
+  border-radius:20px;
+  width:80%;
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(-110vh);
+    opacity:0;
+  }
+}
+
+.note {
+  display:none;
+  background:white;
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+}
+
+.confetti {
+  position: fixed;
+  width:10px;
+  height:10px;
+  background:red;
+  animation: confetti 3s linear infinite;
+}
+
+@keyframes confetti {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(100vh);}
+}
+</style>
+</head>
+
+<body onclick="playCat()">
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/30/audio_9b0bb7df45.mp3">
+</audio>
+
+<h1 onclick="confettiBlast()">Happy Birthday Didu 🎂💗</h1>
+
+<button onclick="openFirst()">Click here 💓</button>
+
+<!-- First Popup -->
+<div class="popup" id="first">
+  <div class="card">
+    <div class="cat">😺</div>
+    <p>I have something for you 👀</p>
+    <button onclick="tellMe()">Tell me</button>
+    <button onclick="angry()">Ni janna</button>
+  </div>
+</div>
+
+<!-- Angry Popup -->
+<div class="popup" id="angry">
+  <div class="card">
+    <div class="cat">💢😾</div>
+    <p>Go back!</p>
+    <button onclick="goHome()">Go Back</button>
+  </div>
+</div>
+
+<!-- Happy Popup -->
+<div class="popup" id="happy">
+  <div class="card">
+    <div class="cat">😻🎉</div>
+    <p>
+      Wishing you a very happy birthday Didu 💗🎈  
+      <br><br>
+      Joke 🤭:  
+      You are not getting older…  
+      You are getting **cuter** 🤌🏻😹
+    </p>
+    <button onclick="goHome()">Back to Home</button>
+  </div>
+</div>
+
+<!-- Scroll Section -->
+<div class="tap-box" onclick="openNote()">
+  <div class="cat">🐱</div>
+  <p><b>TAP 💓</b></p>
+</div>
+
+<div class="note" id="note">
+  <h2>💌 My Emotional Note for You Didu 💌</h2>
+  <p>
+    Dear Didu 🥹💗  
+    <br><br>
+    You are not just my sister,  
+    you are my comfort, my smile, my safe place 🤍  
+    <br><br>
+    No matter what happens,  
+    I’ll always be there for you 🤌🏻💓  
+    <br><br>
+    Happy Birthday to the most precious soul 🎂🎈  
+    Love you always 😘
+  </p>
+</div>
+
+<!-- QR Code -->
+<h3>📱 Scan This QR</h3>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://yourgithubusername.github.io/birthday/" />
+
+<script>
+function openFirst(){
+  document.getElementById("first").style.display="flex";
+}
+function tellMe(){
+  document.getElementById("first").style.display="none";
+  document.getElementById("happy").style.display="flex";
+}
+function angry(){
+  document.getElementById("first").style.display="none";
+  document.getElementById("angry").style.display="flex";
+}
+function goHome(){
+  document.querySelectorAll(".popup").forEach(p=>p.style.display="none");
+}
+function openNote(){
+  document.getElementById("note").style.display="block";
+}
+function playCat(){
+  let a = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_3cbe7ffdf1.mp3");
+  a.play();
+}
+function heartRain(){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💓";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+}
+setInterval(heartRain,500);
+
+function confettiBlast(){
+  for(let i=0;i<30;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
